@@ -1,17 +1,17 @@
-# Monthly Report Feature
-print("=== Monthly Report Generator ===")
+def get_user_input():
+    incomes = list(map(int, input("Enter incomes separated by space: ").split()))
+    expenses = list(map(int, input("Enter expenses separated by space: ").split()))
+    return incomes, expenses
 
-# Take input for income and expenses
-income = float(input("Enter total income for the month: "))
-expenses = float(input("Enter total expenses for the month: "))
+def calculate_summary(income, expenses):
+    total_income = sum(income)
+    total_expenses = sum(expenses)
+    balance = total_income - total_expenses
 
-# Calculate net balance
-balance = income - expenses
+    print("=== Monthly Summary ===")
+    print(f"Total Income: ₹{total_income}")
+    print(f"Total Expenses: ₹{total_expenses}")
+    print(f"Balance: ₹{balance}")
 
-# Display summary
-print("\n--- Monthly Summary ---")
-print("Total Income   :", income)
-print("Total Expenses :", expenses)
-print("Net Balance    :", balance)
-
-# REVIEWER: Suggest adding input validation
+incomes, expenses = get_user_input()
+calculate_summary(incomes, expenses)
